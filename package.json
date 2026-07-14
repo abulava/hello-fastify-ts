@@ -1,0 +1,43 @@
+{
+  "name": "hello-fastify-ts",
+  "version": "0.1.0",
+  "description": "This project was bootstrapped with Fastify-CLI.",
+  "main": "app.ts",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npm run build:ts && tsc -p test/tsconfig.json && c8 node --test -r ts-node/register \"test/**/*.ts\"",
+    "start": "fastify start -l info dist/app.js",
+    "build": "npm run build:ts && vite build",
+    "build:ts": "tsc",
+    "watch:ts": "tsc -w",
+    "dev": "npm run build:ts && concurrently -k -p \"[{name}]\" -n \"TypeScript,App\" -c \"yellow.bold,cyan.bold\" \"npm:watch:ts\" \"npm:dev:start\"",
+    "dev:start": "fastify start --ignore-watch=.ts$ -w -l info -P dist/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@fastify/autoload": "^6.0.0",
+    "@fastify/sensible": "^6.0.0",
+    "@fastify/vite": "^9.1.1",
+    "fastify": "^5.10.0",
+    "fastify-cli": "^8.0.0",
+    "fastify-plugin": "^5.0.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@fastify/react": "^1.1.8",
+    "@types/node": "^24.0.0",
+    "@vitejs/plugin-react": "^6.0.3",
+    "c8": "^11.0.0",
+    "concurrently": "^9.0.0",
+    "fastify-tsconfig": "^3.0.0",
+    "prettier": "^3.9.5",
+    "ts-node": "^10.4.0",
+    "typescript": "~5.9.2",
+    "vite": "^8.1.4"
+  }
+}
