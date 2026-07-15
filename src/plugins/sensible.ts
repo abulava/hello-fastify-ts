@@ -6,6 +6,11 @@ import sensible, { FastifySensibleOptions } from '@fastify/sensible'
  *
  * @see https://github.com/fastify/fastify-sensible
  */
-export default fp<FastifySensibleOptions>(async (fastify) => {
-  fastify.register(sensible)
-})
+export default fp<FastifySensibleOptions>(
+  async (fastify) => {
+    fastify.register(sensible)
+  },
+  {
+    name: 'global-sensible',
+  }
+)
