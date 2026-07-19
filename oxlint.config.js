@@ -29,12 +29,7 @@ export default defineConfig({
       },
     },
     {
-      files: [
-        'pages/**/*.{ts,tsx,js,jsx}',
-        'layouts/**/*.{ts,tsx,js,jsx}',
-        'components/**/*.{ts,tsx,js,jsx}',
-        '*.{tsx,jsx}',
-      ],
+      files: ['client/**/*.{ts,tsx,js,jsx}'],
       env: {
         browser: true,
         node: true,
